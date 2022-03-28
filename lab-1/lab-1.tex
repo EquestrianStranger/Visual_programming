@@ -1,0 +1,142 @@
+\documentclass{article}
+\usepackage[utf8x]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage[russian]{babel}
+
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{caption}
+\usepackage[left=2cm,right=2cm,top=1cm,bottom=3cm]{geometry}
+
+\definecolor{backgroundColour}{rgb}{0.97,0.92,0.84}
+\definecolor{maroon}{rgb}{0.5,0,0}
+
+\DeclareCaptionFont{white}{\color{white}}
+\DeclareCaptionFormat{listing}{\colorbox{maroon}{\parbox{\dimexpr\textwidth-2\fboxsep\relax}{#1#2#3}}}
+\captionsetup[lstlisting]{format=listing,labelfont=white,textfont=white}
+
+\lstset{
+language=C++,
+backgroundcolor=\color{backgroundColour},
+title=\lstname,
+basicstyle=\ttfamily\footnotesize,
+keywordstyle=\color{blue},
+stringstyle=\color{red},
+commentstyle=\color{green},
+numberstyle=\tiny,
+numbers=left,
+stepnumber=1,
+numbersep=5pt,
+showspaces=false,
+showstringspaces=false,
+showtabs=false,
+frame=single,
+tabsize=2,
+captionpos=t,
+breaklines=true,
+breakatwhitespace=false
+}
+
+
+\begin{document}
+
+
+\title{Стиль кода}
+\author{Автор: Кочкин Иван Денисович, ИА-032,\\ email: vaniakochkin24@gmail.com,\\ github: EquestrianStranger}
+\date{Февраль 2022}
+
+\maketitle
+
+\section{Введение}
+\textbf{Стиль кода} - это набор правил для написания проекта. Единый стиль упрощает чтение, редактирование и написание кода.
+
+\section{C}
+Используется версия С17 \cite{C}.\vspace{5mm}
+
+\textbf{Инициализация переменных.} Ставятся пробелы до и после знака присваивания <<=>>.
+\begin{lstlisting}[caption=Инициализация переменных.]
+int a = 1;
+char n;
+\end{lstlisting}
+
+\textbf{Ввод и вывод данных.} Пробел ставится после запятой.
+\begin{lstlisting}[caption=Ввод и вывод данных.]
+scanf("%c", &n);
+printf("Number - %d", a);
+\end{lstlisting}
+
+\textbf{Условный оператор if.} Ставятся пробелы после <<if>> и <<else>>, до и после знаков опираций. В виде отступов используется табуляция (2 пробела).
+\begin{lstlisting}[caption=Условный оператор if.]
+if (a < 10){
+  a = a + 1;
+}
+else{
+  a = a - 2;
+}
+\end{lstlisting}
+
+\textbf{Цикл for.} Использование стиля аналогично условному опреатору if.
+\begin{lstlisting}[caption=Цикл for.]
+for (int i = 2; i < n; i++){
+    y = i * y;
+    x = i * i;
+}
+\end{lstlisting}
+
+\textbf{Реализация функции}, например, swapInt.
+\begin{lstlisting}[caption=Реализация функции.]
+void swapInt(int* a, int* b){
+  *a ^= *b;
+  *b ^= *a;
+  *a ^= *b;
+}
+\end{lstlisting}
+
+\section{C++}
+Используется версия С++20 \cite{C++}.\vspace{5mm}
+
+Применяются стили написания, аналогично языку C. Поэтому следует описать ввод и вывод данных, а также классы, которые не используются в языке C.\par
+\textbf{Ввод и вывод данных.} Ставятся пробелы до и после операторов ввода и вывода.
+\begin{lstlisting}[caption=Ввод и вывод данных.]
+std::cout << "Choose a number: ";
+std::cin >> a;
+std::cout << "Your number is" << a << std::endl;
+\end{lstlisting}
+
+\textbf{Классы.}, например, ManufactFirm.
+\begin{lstlisting}[caption=Классы.]
+class ManufactFirm{
+  private:
+  std::string name;
+  std::string country;
+  std::string equipmentType;
+
+  public:
+  ManufactFirm(std::string m_nm, std::string m_cntr, std::string m_eqtp){
+    name = m_nm;
+    country = m_cntr;
+    equipmentType = m_eqtp;
+  }
+
+  void print(){
+    std::cout << country << " " << equipmentType << "\n";
+  }
+
+  std::string get_country(){
+    return country;
+  }
+
+  void set_name(std::string m_nm){
+    name = m_nm;
+  }
+};
+\end{lstlisting}
+
+\begin{thebibliography}{}
+\bibitem{C}
+ISO/IEC 9899 Programming languages~--- C.
+\bibitem{C++}
+ISO/IEC 14882 Programming languages~--- C++.
+\end{thebibliography}
+
+\end{document}
